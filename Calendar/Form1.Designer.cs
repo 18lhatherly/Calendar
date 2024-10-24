@@ -29,93 +29,178 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.Navbar = new System.Windows.Forms.Panel();
-            this.studentsBtn = new System.Windows.Forms.Button();
-            this.meetingsBtn = new System.Windows.Forms.Button();
-            this.calendarBtn = new System.Windows.Forms.Button();
-            this.dashboardBtn = new System.Windows.Forms.Button();
-            this.Navbar.SuspendLayout();
-            this.SuspendLayout();
+            Navbar = new Panel();
+            studentsBtn = new Button();
+            meetingsBtn = new Button();
+            calendarBtn = new Button();
+            dashboardBtn = new Button();
+            dataGridView1 = new DataGridView();
+            Monday = new DataGridViewTextBoxColumn();
+            tuesday = new DataGridViewTextBoxColumn();
+            wednesday = new DataGridViewTextBoxColumn();
+            thursday = new DataGridViewTextBoxColumn();
+            friday = new DataGridViewTextBoxColumn();
+            Navbar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            SuspendLayout();
             // 
             // Navbar
             // 
-            this.Navbar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Navbar.Controls.Add(this.studentsBtn);
-            this.Navbar.Controls.Add(this.meetingsBtn);
-            this.Navbar.Controls.Add(this.calendarBtn);
-            this.Navbar.Controls.Add(this.dashboardBtn);
-            this.Navbar.Location = new System.Drawing.Point(3, 4);
-            this.Navbar.Name = "Navbar";
-            this.Navbar.Size = new System.Drawing.Size(200, 445);
-            this.Navbar.TabIndex = 0;
+            Navbar.BackgroundImageLayout = ImageLayout.None;
+            Navbar.Controls.Add(studentsBtn);
+            Navbar.Controls.Add(meetingsBtn);
+            Navbar.Controls.Add(calendarBtn);
+            Navbar.Controls.Add(dashboardBtn);
+            Navbar.Location = new Point(6, 9);
+            Navbar.Margin = new Padding(6);
+            Navbar.Name = "Navbar";
+            Navbar.Size = new Size(371, 949);
+            Navbar.TabIndex = 0;
             // 
             // studentsBtn
             // 
-            this.studentsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.studentsBtn.Location = new System.Drawing.Point(52, 308);
-            this.studentsBtn.Name = "studentsBtn";
-            this.studentsBtn.Size = new System.Drawing.Size(148, 65);
-            this.studentsBtn.TabIndex = 3;
-            this.studentsBtn.Text = "Students";
-            this.studentsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.studentsBtn.UseVisualStyleBackColor = false;
+            studentsBtn.BackColor = Color.Transparent;
+            studentsBtn.Font = new Font("Calibri", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            studentsBtn.Image = (Image)resources.GetObject("studentsBtn.Image");
+            studentsBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            studentsBtn.Location = new Point(-1, 466);
+            studentsBtn.Margin = new Padding(6);
+            studentsBtn.Name = "studentsBtn";
+            studentsBtn.Padding = new Padding(10, 0, 0, 0);
+            studentsBtn.Size = new Size(373, 73);
+            studentsBtn.TabIndex = 2;
+            studentsBtn.Text = "Students";
+            studentsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            studentsBtn.UseMnemonic = false;
+            studentsBtn.UseVisualStyleBackColor = false;
             // 
             // meetingsBtn
             // 
-            this.meetingsBtn.BackColor = System.Drawing.Color.Transparent;
-            this.meetingsBtn.Location = new System.Drawing.Point(52, 245);
-            this.meetingsBtn.Name = "meetingsBtn";
-            this.meetingsBtn.Size = new System.Drawing.Size(148, 65);
-            this.meetingsBtn.TabIndex = 2;
-            this.meetingsBtn.Text = "Meetings";
-            this.meetingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.meetingsBtn.UseVisualStyleBackColor = false;
+            meetingsBtn.BackColor = Color.Transparent;
+            meetingsBtn.Font = new Font("Calibri", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            meetingsBtn.Image = (Image)resources.GetObject("meetingsBtn.Image");
+            meetingsBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            meetingsBtn.Location = new Point(-1, 396);
+            meetingsBtn.Margin = new Padding(6);
+            meetingsBtn.Name = "meetingsBtn";
+            meetingsBtn.Padding = new Padding(10, 0, 0, 0);
+            meetingsBtn.Size = new Size(373, 73);
+            meetingsBtn.TabIndex = 2;
+            meetingsBtn.Text = "Meetings";
+            meetingsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            meetingsBtn.UseMnemonic = false;
+            meetingsBtn.UseVisualStyleBackColor = false;
             // 
             // calendarBtn
             // 
-            this.calendarBtn.BackColor = System.Drawing.Color.Transparent;
-            this.calendarBtn.Location = new System.Drawing.Point(52, 182);
-            this.calendarBtn.Name = "calendarBtn";
-            this.calendarBtn.Size = new System.Drawing.Size(148, 65);
-            this.calendarBtn.TabIndex = 1;
-            this.calendarBtn.Text = "Calendar";
-            this.calendarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.calendarBtn.UseVisualStyleBackColor = false;
+            calendarBtn.BackColor = Color.Transparent;
+            calendarBtn.Font = new Font("Calibri", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            calendarBtn.Image = (Image)resources.GetObject("calendarBtn.Image");
+            calendarBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            calendarBtn.Location = new Point(-1, 325);
+            calendarBtn.Margin = new Padding(6);
+            calendarBtn.Name = "calendarBtn";
+            calendarBtn.Padding = new Padding(10, 0, 0, 0);
+            calendarBtn.Size = new Size(373, 73);
+            calendarBtn.TabIndex = 1;
+            calendarBtn.Text = "Calendar";
+            calendarBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            calendarBtn.UseMnemonic = false;
+            calendarBtn.UseVisualStyleBackColor = false;
+            calendarBtn.Click += button1_Click_1;
             // 
             // dashboardBtn
             // 
-            this.dashboardBtn.BackColor = System.Drawing.Color.Transparent;
-            this.dashboardBtn.Image = ((System.Drawing.Image)(resources.GetObject("dashboardBtn.Image")));
-            this.dashboardBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.dashboardBtn.Location = new System.Drawing.Point(52, 119);
-            this.dashboardBtn.Name = "dashboardBtn";
-            this.dashboardBtn.Size = new System.Drawing.Size(148, 65);
-            this.dashboardBtn.TabIndex = 0;
-            this.dashboardBtn.Text = "Dashboard";
-            this.dashboardBtn.UseMnemonic = false;
-            this.dashboardBtn.UseVisualStyleBackColor = false;
-            this.dashboardBtn.Click += new System.EventHandler(this.button1_Click);
+            dashboardBtn.BackColor = Color.Transparent;
+            dashboardBtn.Font = new Font("Calibri", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            dashboardBtn.Image = (Image)resources.GetObject("dashboardBtn.Image");
+            dashboardBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            dashboardBtn.Location = new Point(-1, 254);
+            dashboardBtn.Margin = new Padding(6);
+            dashboardBtn.Name = "dashboardBtn";
+            dashboardBtn.Padding = new Padding(10, 0, 0, 0);
+            dashboardBtn.Size = new Size(373, 73);
+            dashboardBtn.TabIndex = 0;
+            dashboardBtn.Text = "Dashboard";
+            dashboardBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+            dashboardBtn.UseMnemonic = false;
+            dashboardBtn.UseVisualStyleBackColor = false;
+            dashboardBtn.Click += button1_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Monday, tuesday, wednesday, thursday, friday });
+            dataGridView1.Location = new Point(746, 170);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 82;
+            dataGridView1.RowTemplate.Height = 41;
+            dataGridView1.Size = new Size(1089, 704);
+            dataGridView1.TabIndex = 1;
+            // 
+            // Monday
+            // 
+            Monday.HeaderText = "Monday";
+            Monday.MinimumWidth = 10;
+            Monday.Name = "Monday";
+            Monday.Width = 200;
+            // 
+            // tuesday
+            // 
+            tuesday.HeaderText = "Tuesday";
+            tuesday.MinimumWidth = 10;
+            tuesday.Name = "tuesday";
+            tuesday.Width = 200;
+            // 
+            // wednesday
+            // 
+            wednesday.HeaderText = "Wednesday";
+            wednesday.MinimumWidth = 10;
+            wednesday.Name = "wednesday";
+            wednesday.Width = 200;
+            // 
+            // thursday
+            // 
+            thursday.HeaderText = "Thursday";
+            thursday.MinimumWidth = 10;
+            thursday.Name = "thursday";
+            thursday.Width = 200;
+            // 
+            // friday
+            // 
+            friday.HeaderText = "Friday";
+            friday.MinimumWidth = 10;
+            friday.Name = "friday";
+            friday.Width = 200;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Navbar);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.Navbar.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1993, 960);
+            Controls.Add(dataGridView1);
+            Controls.Add(Navbar);
+            Margin = new Padding(6);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            Navbar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
 
         private Panel Navbar;
-        private Button meetingsBtn;
-        private Button calendarBtn;
         private Button dashboardBtn;
+        private Button calendarBtn;
         private Button studentsBtn;
+        private Button meetingsBtn;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Monday;
+        private DataGridViewTextBoxColumn tuesday;
+        private DataGridViewTextBoxColumn wednesday;
+        private DataGridViewTextBoxColumn thursday;
+        private DataGridViewTextBoxColumn friday;
     }
 }
