@@ -11,7 +11,8 @@ namespace Calendar
         {
             PopulateDataGridView();
             this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            dataGridView1.RowHeadersWidth = 200;
+            dataGridView1.RowHeadersWidth = 75;
+            dataGridView1.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             for (int i = 0; i < 5; i++)
             {
                 this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
