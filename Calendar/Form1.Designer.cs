@@ -1,6 +1,6 @@
 ﻿namespace Calendar
 {
-    partial class Form1
+    partial class teacherCalendar
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(teacherCalendar));
             Navbar = new Panel();
             studentsBtn = new Button();
             meetingsBtn = new Button();
             calendarBtn = new Button();
             dashboardBtn = new Button();
-            dataGridView1 = new DataGridView();
+            weekCalendar = new DataGridView();
             Monday = new DataGridViewTextBoxColumn();
             tuesday = new DataGridViewTextBoxColumn();
             wednesday = new DataGridViewTextBoxColumn();
@@ -42,17 +42,17 @@
             friday = new DataGridViewTextBoxColumn();
             label1 = new Label();
             monthCalendar1 = new MonthCalendar();
-            comboBox1 = new ComboBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
+            teacherSelector = new ComboBox();
+            seeTeacherTimetable = new Label();
+            categoriesTitle = new Label();
+            Priority1 = new Label();
+            Priority2 = new Label();
+            Priority3 = new Label();
+            staffMeeting = new Label();
+            other = new Label();
+            guideTitle = new Label();
             Navbar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)weekCalendar).BeginInit();
             SuspendLayout();
             // 
             // Navbar
@@ -133,18 +133,18 @@
             dashboardBtn.UseVisualStyleBackColor = false;
             dashboardBtn.Click += button1_Click;
             // 
-            // dataGridView1
+            // weekCalendar
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Monday, tuesday, wednesday, thursday, friday });
-            dataGridView1.Location = new Point(482, 90);
-            dataGridView1.Margin = new Padding(2, 1, 2, 1);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.RowTemplate.Height = 100;
-            dataGridView1.Size = new Size(1084, 607);
-            dataGridView1.TabIndex = 1;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            weekCalendar.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            weekCalendar.Columns.AddRange(new DataGridViewColumn[] { Monday, tuesday, wednesday, thursday, friday });
+            weekCalendar.Location = new Point(482, 90);
+            weekCalendar.Margin = new Padding(2, 1, 2, 1);
+            weekCalendar.Name = "weekCalendar";
+            weekCalendar.RowHeadersWidth = 82;
+            weekCalendar.RowTemplate.Height = 100;
+            weekCalendar.Size = new Size(1084, 607);
+            weekCalendar.TabIndex = 1;
+            weekCalendar.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Monday
             // 
@@ -200,145 +200,146 @@
             monthCalendar1.Margin = new Padding(5, 4, 5, 4);
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
+            monthCalendar1.DateChanged += monthCalendar1_DateChanged;
             // 
-            // comboBox1
+            // teacherSelector
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Miss Brown", "Mr Honey", "Ms Moses", "Mr Moss", "Mr Jones" });
-            comboBox1.Location = new Point(233, 231);
-            comboBox1.Margin = new Padding(2, 1, 2, 1);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(219, 23);
-            comboBox1.TabIndex = 4;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            teacherSelector.FormattingEnabled = true;
+            teacherSelector.Items.AddRange(new object[] { "Miss Brown", "Mr Honey", "Ms Moses", "Mr Moss", "Mr Jones" });
+            teacherSelector.Location = new Point(233, 231);
+            teacherSelector.Margin = new Padding(2, 1, 2, 1);
+            teacherSelector.Name = "teacherSelector";
+            teacherSelector.Size = new Size(219, 23);
+            teacherSelector.TabIndex = 4;
+            teacherSelector.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // label2
+            // seeTeacherTimetable
             // 
-            label2.AutoSize = true;
-            label2.BackColor = SystemColors.ActiveBorder;
-            label2.ForeColor = SystemColors.Desktop;
-            label2.Location = new Point(234, 197);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Padding = new Padding(50, 5, 50, 5);
-            label2.Size = new Size(220, 25);
-            label2.TabIndex = 5;
-            label2.Text = "See teacher timetable";
+            seeTeacherTimetable.AutoSize = true;
+            seeTeacherTimetable.BackColor = SystemColors.ActiveBorder;
+            seeTeacherTimetable.ForeColor = SystemColors.Desktop;
+            seeTeacherTimetable.Location = new Point(234, 197);
+            seeTeacherTimetable.Margin = new Padding(2, 0, 2, 0);
+            seeTeacherTimetable.Name = "seeTeacherTimetable";
+            seeTeacherTimetable.Padding = new Padding(50, 5, 50, 5);
+            seeTeacherTimetable.Size = new Size(220, 25);
+            seeTeacherTimetable.TabIndex = 5;
+            seeTeacherTimetable.Text = "See teacher timetable";
             // 
-            // label3
+            // categoriesTitle
             // 
-            label3.AutoSize = true;
-            label3.BackColor = SystemColors.ActiveBorder;
-            label3.ForeColor = SystemColors.Desktop;
-            label3.Location = new Point(245, 261);
-            label3.Margin = new Padding(2, 0, 2, 0);
-            label3.Name = "label3";
-            label3.Padding = new Padding(65, 5, 65, 5);
-            label3.Size = new Size(193, 25);
-            label3.TabIndex = 6;
-            label3.Text = "Categories";
+            categoriesTitle.AutoSize = true;
+            categoriesTitle.BackColor = SystemColors.ActiveBorder;
+            categoriesTitle.ForeColor = SystemColors.Desktop;
+            categoriesTitle.Location = new Point(245, 261);
+            categoriesTitle.Margin = new Padding(2, 0, 2, 0);
+            categoriesTitle.Name = "categoriesTitle";
+            categoriesTitle.Padding = new Padding(65, 5, 65, 5);
+            categoriesTitle.Size = new Size(193, 25);
+            categoriesTitle.TabIndex = 6;
+            categoriesTitle.Text = "Categories";
             // 
-            // label4
+            // Priority1
             // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Brown;
-            label4.ForeColor = SystemColors.Desktop;
-            label4.Location = new Point(245, 297);
-            label4.Margin = new Padding(2, 0, 2, 0);
-            label4.Name = "label4";
-            label4.Padding = new Padding(70, 5, 70, 5);
-            label4.Size = new Size(194, 25);
-            label4.TabIndex = 7;
-            label4.Text = "Priority 1";
+            Priority1.AutoSize = true;
+            Priority1.BackColor = Color.Brown;
+            Priority1.ForeColor = SystemColors.Desktop;
+            Priority1.Location = new Point(245, 297);
+            Priority1.Margin = new Padding(2, 0, 2, 0);
+            Priority1.Name = "Priority1";
+            Priority1.Padding = new Padding(70, 5, 70, 5);
+            Priority1.Size = new Size(194, 25);
+            Priority1.TabIndex = 7;
+            Priority1.Text = "Priority 1";
             // 
-            // label5
+            // Priority2
             // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Goldenrod;
-            label5.ForeColor = SystemColors.Desktop;
-            label5.Location = new Point(245, 332);
-            label5.Margin = new Padding(2, 0, 2, 0);
-            label5.Name = "label5";
-            label5.Padding = new Padding(70, 5, 70, 5);
-            label5.Size = new Size(194, 25);
-            label5.TabIndex = 8;
-            label5.Text = "Priority 2";
+            Priority2.AutoSize = true;
+            Priority2.BackColor = Color.Goldenrod;
+            Priority2.ForeColor = SystemColors.Desktop;
+            Priority2.Location = new Point(245, 332);
+            Priority2.Margin = new Padding(2, 0, 2, 0);
+            Priority2.Name = "Priority2";
+            Priority2.Padding = new Padding(70, 5, 70, 5);
+            Priority2.Size = new Size(194, 25);
+            Priority2.TabIndex = 8;
+            Priority2.Text = "Priority 2";
             // 
-            // label6
+            // Priority3
             // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.ForestGreen;
-            label6.ForeColor = SystemColors.Desktop;
-            label6.Location = new Point(245, 366);
-            label6.Margin = new Padding(2, 0, 2, 0);
-            label6.Name = "label6";
-            label6.Padding = new Padding(70, 5, 70, 5);
-            label6.Size = new Size(194, 25);
-            label6.TabIndex = 9;
-            label6.Text = "Priority 3";
+            Priority3.AutoSize = true;
+            Priority3.BackColor = Color.ForestGreen;
+            Priority3.ForeColor = SystemColors.Desktop;
+            Priority3.Location = new Point(245, 366);
+            Priority3.Margin = new Padding(2, 0, 2, 0);
+            Priority3.Name = "Priority3";
+            Priority3.Padding = new Padding(70, 5, 70, 5);
+            Priority3.Size = new Size(194, 25);
+            Priority3.TabIndex = 9;
+            Priority3.Text = "Priority 3";
             // 
-            // label7
+            // staffMeeting
             // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.MediumPurple;
-            label7.ForeColor = SystemColors.Desktop;
-            label7.Location = new Point(245, 403);
-            label7.Margin = new Padding(2, 0, 2, 0);
-            label7.Name = "label7";
-            label7.Padding = new Padding(58, 5, 58, 5);
-            label7.Size = new Size(194, 25);
-            label7.TabIndex = 10;
-            label7.Text = "Staff meeting";
+            staffMeeting.AutoSize = true;
+            staffMeeting.BackColor = Color.MediumPurple;
+            staffMeeting.ForeColor = SystemColors.Desktop;
+            staffMeeting.Location = new Point(245, 403);
+            staffMeeting.Margin = new Padding(2, 0, 2, 0);
+            staffMeeting.Name = "staffMeeting";
+            staffMeeting.Padding = new Padding(58, 5, 58, 5);
+            staffMeeting.Size = new Size(194, 25);
+            staffMeeting.TabIndex = 10;
+            staffMeeting.Text = "Staff meeting";
             // 
-            // label8
+            // other
             // 
-            label8.AutoSize = true;
-            label8.BackColor = SystemColors.ControlDarkDark;
-            label8.ForeColor = SystemColors.Desktop;
-            label8.Location = new Point(245, 439);
-            label8.Margin = new Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Padding = new Padding(79, 5, 79, 5);
-            label8.Size = new Size(195, 25);
-            label8.TabIndex = 11;
-            label8.Text = "Other";
+            other.AutoSize = true;
+            other.BackColor = SystemColors.ControlDarkDark;
+            other.ForeColor = SystemColors.Desktop;
+            other.Location = new Point(245, 439);
+            other.Margin = new Padding(2, 0, 2, 0);
+            other.Name = "other";
+            other.Padding = new Padding(79, 5, 79, 5);
+            other.Size = new Size(195, 25);
+            other.TabIndex = 11;
+            other.Text = "Other";
             // 
-            // label9
+            // guideTitle
             // 
-            label9.AutoSize = true;
-            label9.BackColor = SystemColors.ActiveBorder;
-            label9.ForeColor = SystemColors.Desktop;
-            label9.Location = new Point(245, 477);
-            label9.Margin = new Padding(2, 0, 2, 0);
-            label9.Name = "label9";
-            label9.Padding = new Padding(79, 5, 79, 5);
-            label9.Size = new Size(196, 25);
-            label9.TabIndex = 12;
-            label9.Text = "Guide";
+            guideTitle.AutoSize = true;
+            guideTitle.BackColor = SystemColors.ActiveBorder;
+            guideTitle.ForeColor = SystemColors.Desktop;
+            guideTitle.Location = new Point(245, 477);
+            guideTitle.Margin = new Padding(2, 0, 2, 0);
+            guideTitle.Name = "guideTitle";
+            guideTitle.Padding = new Padding(79, 5, 79, 5);
+            guideTitle.Size = new Size(196, 25);
+            guideTitle.TabIndex = 12;
+            guideTitle.Text = "Guide";
             // 
-            // Form1
+            // teacherCalendar
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1584, 733);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(guideTitle);
+            Controls.Add(other);
+            Controls.Add(staffMeeting);
+            Controls.Add(Priority3);
+            Controls.Add(Priority2);
+            Controls.Add(Priority1);
+            Controls.Add(categoriesTitle);
+            Controls.Add(seeTeacherTimetable);
+            Controls.Add(teacherSelector);
             Controls.Add(monthCalendar1);
             Controls.Add(label1);
-            Controls.Add(dataGridView1);
+            Controls.Add(weekCalendar);
             Controls.Add(Navbar);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "teacherCalendar";
+            Text = "Calendar";
             Load += Form1_Load;
             Navbar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)weekCalendar).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -350,18 +351,18 @@
         private Button calendarBtn;
         private Button studentsBtn;
         private Button meetingsBtn;
-        private DataGridView dataGridView1;
+        private DataGridView weekCalendar;
         private Label label1;
         private MonthCalendar monthCalendar1;
-        private ComboBox comboBox1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
+        private ComboBox teacherSelector;
+        private Label seeTeacherTimetable;
+        private Label categoriesTitle;
+        private Label Priority1;
+        private Label Priority2;
+        private Label Priority3;
+        private Label staffMeeting;
+        private Label other;
+        private Label guideTitle;
         private DataGridViewTextBoxColumn Monday;
         private DataGridViewTextBoxColumn tuesday;
         private DataGridViewTextBoxColumn wednesday;
