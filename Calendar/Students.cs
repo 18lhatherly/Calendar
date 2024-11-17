@@ -1,4 +1,5 @@
-﻿using System;
+﻿using databasee.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,25 @@ namespace Calendar
 {
     public partial class Students : Form
     {
+        private IDataAccess dataAccess;
+
         public Students()
         {
+            dataAccess = new DataAccessSQL();
             InitializeComponent();
+
         }
         private void Students_Load(object sender, EventArgs e)
         {
+            //studentList.Items.Add("Adam Hatherly");
 
-            studentList.Items.Add("Adam Hatherly");
-            studentList.Items.Add("Laura Hatherly");
-            studentList.Items.Add("Emma Hatherly");
-            studentList.Items.Add("Luke Hatherly");
+            List<Student> studentsFromDB = dataAccess.GetStudentList();
+            foreach (Student student in studentsFromDB)
+            {
+                studentList.Items.Add(student.FirstName + " " + student.LastName);
+
+            }
+
         }
 
         private void Navbar_Paint(object sender, PaintEventArgs e)
