@@ -14,7 +14,7 @@ namespace Calendar
             dataGridView1.RowHeadersWidth = 200;
             for (int i = 0; i < 5; i++)
             {
-                this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
+                this.weekCalendar.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
             PRQueue<string> myPriorityQueue = new PRQueue<string>();
@@ -66,19 +66,19 @@ namespace Calendar
             string[] rowafterschool = { " ", " ", " ",
             " ", " " };
 
-            dataGridView1.Rows.Add(rowb4school);
-            dataGridView1.Rows.Add(row0);
-            dataGridView1.Rows.Add(rowbreak);
-            dataGridView1.Rows.Add(row1);
-            dataGridView1.Rows.Add(row2);
-            dataGridView1.Rows.Add(rowlunch);
-            dataGridView1.Rows.Add(row3);
-            dataGridView1.Rows.Add(row4);
-            dataGridView1.Rows.Add(rowafterschool);
+            weekCalendar.Rows.Add(rowb4school);
+            weekCalendar.Rows.Add(row0);
+            weekCalendar.Rows.Add(rowbreak);
+            weekCalendar.Rows.Add(row1);
+            weekCalendar.Rows.Add(row2);
+            weekCalendar.Rows.Add(rowlunch);
+            weekCalendar.Rows.Add(row3);
+            weekCalendar.Rows.Add(row4);
+            weekCalendar.Rows.Add(rowafterschool);
 
 
-            dataGridView1.ReadOnly = true;
-            dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Transparent;
+            weekCalendar.ReadOnly = true;
+            weekCalendar.DefaultCellStyle.SelectionBackColor = Color.Transparent;
             DateTime localDate = DateTime.Now;
             int dayOfWeek = Convert.ToInt32(localDate.DayOfWeek);
             string time = Convert.ToString(localDate.ToShortTimeString());
@@ -132,7 +132,7 @@ namespace Calendar
 
             if (timeIndex == -1)
             {
-                dataGridView1.Rows[0].Cells[0].Style.BackColor = Color.White;
+                weekCalendar.Rows[0].Cells[0].Style.BackColor = Color.White;
             }
             else
             {
@@ -145,15 +145,15 @@ namespace Calendar
             // {
             //    dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
             //}
-            dataGridView1.Rows[0].HeaderCell.Value = "Before School";
-            dataGridView1.Rows[1].HeaderCell.Value = "Period 1";
-            dataGridView1.Rows[2].HeaderCell.Value = "Break";
-            dataGridView1.Rows[3].HeaderCell.Value = "Period 2";
-            dataGridView1.Rows[4].HeaderCell.Value = "Period 3";
-            dataGridView1.Rows[5].HeaderCell.Value = "Lunch";
-            dataGridView1.Rows[6].HeaderCell.Value = "Period 4";
-            dataGridView1.Rows[7].HeaderCell.Value = "Period 5";
-            dataGridView1.Rows[8].HeaderCell.Value = "After School";
+            weekCalendar.Rows[0].HeaderCell.Value = "Before School";
+            weekCalendar.Rows[1].HeaderCell.Value = "Period 1";
+            weekCalendar.Rows[2].HeaderCell.Value = "Break";
+            weekCalendar.Rows[3].HeaderCell.Value = "Period 2";
+            weekCalendar.Rows[4].HeaderCell.Value = "Period 3";
+            weekCalendar.Rows[5].HeaderCell.Value = "Lunch";
+            weekCalendar.Rows[6].HeaderCell.Value = "Period 4";
+            weekCalendar.Rows[7].HeaderCell.Value = "Period 5";
+            weekCalendar.Rows[8].HeaderCell.Value = "After School";
 
 
         }
@@ -170,7 +170,12 @@ namespace Calendar
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
         }
     }
 }
