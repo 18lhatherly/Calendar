@@ -144,7 +144,6 @@
             weekCalendar.RowTemplate.Height = 100;
             weekCalendar.Size = new Size(1084, 607);
             weekCalendar.TabIndex = 1;
-            weekCalendar.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Monday
             // 
@@ -209,7 +208,6 @@
             teacherSelector.Name = "teacherSelector";
             teacherSelector.Size = new Size(404, 40);
             teacherSelector.TabIndex = 4;
-            teacherSelector.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // seeTeacherTimetable
             // 
@@ -331,7 +329,7 @@
             Controls.Add(teacherSelector);
             Controls.Add(monthCalendar1);
             Controls.Add(teacherName);
-            Controls.Add(dataGridView1);
+            Controls.Add(weekCalendar);
             Controls.Add(Navbar);
             Margin = new Padding(6);
             Name = "TeacherCalendar";
@@ -350,7 +348,7 @@
         private Button calendarBtn;
         private Button studentsBtn;
         private Button meetingsBtn;
-        private DataGridView dataGridView1;
+        private DataGridView weekCalendar;
         private Label teacherName;
         private MonthCalendar monthCalendar1;
         private ComboBox teacherSelector;
@@ -367,7 +365,6 @@
         private DataGridViewTextBoxColumn wednesday;
         private DataGridViewTextBoxColumn thursday;
         private DataGridViewTextBoxColumn friday;
-        private ComboBox teacherSelector;
         private Label label2;
         private Label label3;
         private Label label4;

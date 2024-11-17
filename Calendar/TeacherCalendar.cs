@@ -11,7 +11,7 @@ namespace Calendar
         {
             PopulateDataGridView();
             this.teacherSelector.DropDownStyle = ComboBoxStyle.DropDownList;
-            dataGridView1.RowHeadersWidth = 200;
+            weekCalendar.RowHeadersWidth = 200;
             for (int i = 0; i < 5; i++)
             {
                 this.weekCalendar.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -26,10 +26,6 @@ namespace Calendar
 
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void toolStripLabel1_Click(object sender, EventArgs e)
         {
@@ -158,20 +154,11 @@ namespace Calendar
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
