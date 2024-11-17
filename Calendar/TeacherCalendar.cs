@@ -1,8 +1,8 @@
 namespace Calendar
 {
-    public partial class Form1 : Form
+    public partial class TeacherCalendar : Form
     {
-        public Form1()
+        public TeacherCalendar()
         {
             InitializeComponent();
         }
@@ -10,12 +10,14 @@ namespace Calendar
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateDataGridView();
-            this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.teacherSelector.DropDownStyle = ComboBoxStyle.DropDownList;
             dataGridView1.RowHeadersWidth = 200;
             for (int i = 0; i < 5; i++)
             {
                 this.dataGridView1.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
+
+            PRQueue<string> myPriorityQueue = new PRQueue<string>();
         }
 
 
@@ -134,7 +136,7 @@ namespace Calendar
             }
             else
             {
-                dataGridView1.Rows[timeIndex].Cells[dayOfWeek - 1].Style.BackColor = Color.LightGray;
+                //dataGridView1.Rows[timeIndex].Cells[dayOfWeek - 1].Style.BackColor = Color.LightGray;
             }
 
 

@@ -1,6 +1,6 @@
 ﻿namespace Calendar
 {
-    partial class Form1
+    partial class TeacherCalendar
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TeacherCalendar));
             Navbar = new Panel();
             studentsBtn = new Button();
             meetingsBtn = new Button();
@@ -40,9 +40,9 @@
             wednesday = new DataGridViewTextBoxColumn();
             thursday = new DataGridViewTextBoxColumn();
             friday = new DataGridViewTextBoxColumn();
-            label1 = new Label();
+            teacherName = new Label();
             monthCalendar1 = new MonthCalendar();
-            comboBox1 = new ComboBox();
+            teacherSelector = new ComboBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -185,17 +185,17 @@
             friday.Name = "friday";
             friday.Width = 300;
             // 
-            // label1
+            // teacherName
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Consolas", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.Indigo;
-            label1.Location = new Point(896, 70);
-            label1.Name = "label1";
-            label1.Size = new Size(433, 62);
-            label1.TabIndex = 2;
-            label1.Text = "Laura Hatherly";
-            label1.Click += label1_Click;
+            teacherName.AutoSize = true;
+            teacherName.Font = new Font("Consolas", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
+            teacherName.ForeColor = Color.Indigo;
+            teacherName.Location = new Point(896, 70);
+            teacherName.Name = "teacherName";
+            teacherName.Size = new Size(433, 62);
+            teacherName.TabIndex = 2;
+            teacherName.Text = "Laura Hatherly";
+            teacherName.Click += label1_Click;
             // 
             // monthCalendar1
             // 
@@ -203,15 +203,15 @@
             monthCalendar1.Name = "monthCalendar1";
             monthCalendar1.TabIndex = 3;
             // 
-            // comboBox1
+            // teacherSelector
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Miss Brown", "Mr Honey", "Ms Moses", "Mr Moss", "Mr Jones" });
-            comboBox1.Location = new Point(432, 492);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(404, 40);
-            comboBox1.TabIndex = 4;
-            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            teacherSelector.FormattingEnabled = true;
+            teacherSelector.Items.AddRange(new object[] { "Miss Brown", "Mr Honey", "Ms Moses", "Mr Moss", "Mr Jones" });
+            teacherSelector.Location = new Point(432, 492);
+            teacherSelector.Name = "teacherSelector";
+            teacherSelector.Size = new Size(404, 40);
+            teacherSelector.TabIndex = 4;
+            teacherSelector.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // label2
             // 
@@ -309,7 +309,7 @@
             label9.TabIndex = 12;
             label9.Text = "Guide";
             // 
-            // Form1
+            // TeacherCalendar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -322,14 +322,14 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(comboBox1);
+            Controls.Add(teacherSelector);
             Controls.Add(monthCalendar1);
-            Controls.Add(label1);
+            Controls.Add(teacherName);
             Controls.Add(dataGridView1);
             Controls.Add(Navbar);
             Margin = new Padding(6);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "TeacherCalendar";
+            Text = "Calendar";
             Load += Form1_Load;
             Navbar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -345,14 +345,14 @@
         private Button studentsBtn;
         private Button meetingsBtn;
         private DataGridView dataGridView1;
-        private Label label1;
+        private Label teacherName;
         private MonthCalendar monthCalendar1;
         private DataGridViewTextBoxColumn Monday;
         private DataGridViewTextBoxColumn tuesday;
         private DataGridViewTextBoxColumn wednesday;
         private DataGridViewTextBoxColumn thursday;
         private DataGridViewTextBoxColumn friday;
-        private ComboBox comboBox1;
+        private ComboBox teacherSelector;
         private Label label2;
         private Label label3;
         private Label label4;
