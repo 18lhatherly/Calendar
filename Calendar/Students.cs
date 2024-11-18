@@ -51,7 +51,7 @@ namespace Calendar
 
         private void studentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,5 +59,6 @@ namespace Calendar
             var i = studentList.Items[studentList.SelectedIndex].ToString();
             MessageBox.Show(i.ToString());
         }
+
     }
 }

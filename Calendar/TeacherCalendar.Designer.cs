@@ -82,6 +82,7 @@
             studentsBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
             studentsBtn.UseMnemonic = false;
             studentsBtn.UseVisualStyleBackColor = false;
+            studentsBtn.Click += studentsBtn_Click;
             // 
             // meetingsBtn
             // 
@@ -183,11 +184,11 @@
             // teacherName
             // 
             teacherName.AutoSize = true;
-            teacherName.Font = new Font("Consolas", 19.875F, FontStyle.Bold, GraphicsUnit.Point);
+            teacherName.Font = new Font("Consolas", 19.875F, FontStyle.Bold);
             teacherName.ForeColor = Color.Indigo;
-            teacherName.Location = new Point(896, 70);
+            teacherName.Location = new Point(482, 29);
             teacherName.Name = "teacherName";
-            teacherName.Size = new Size(433, 62);
+            teacherName.Size = new Size(224, 32);
             teacherName.TabIndex = 2;
             teacherName.Text = "Laura Hatherly";
             teacherName.Click += label1_Click;
@@ -204,9 +205,9 @@
             // 
             teacherSelector.FormattingEnabled = true;
             teacherSelector.Items.AddRange(new object[] { "Miss Brown", "Mr Honey", "Ms Moses", "Mr Moss", "Mr Jones" });
-            teacherSelector.Location = new Point(432, 492);
+            teacherSelector.Location = new Point(233, 229);
             teacherSelector.Name = "teacherSelector";
-            teacherSelector.Size = new Size(404, 40);
+            teacherSelector.Size = new Size(221, 23);
             teacherSelector.TabIndex = 4;
             // 
             // seeTeacherTimetable

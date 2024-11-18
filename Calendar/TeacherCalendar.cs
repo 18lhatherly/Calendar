@@ -164,5 +164,11 @@ namespace Calendar
         {
 
         }
+
+        private void studentsBtn_Click(object sender, EventArgs e)
+        {
+            Students.Show();
+            TeacherCalendar.Close();
+        }
     }
 }
