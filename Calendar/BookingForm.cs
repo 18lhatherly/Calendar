@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calendar.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +13,15 @@ namespace Calendar
 {
     public partial class BookingForm : Form
     {
+        private LoginSession loginSession;
         private IDataAccess dataAccess;
-        int selectedPriority = -1;
+        private int selectedPriority = -1;
         //string studentName = "Laura";
         //PRQueue<int> myPriorityQueue = new PRQueue<int>();
         public BookingForm()
         {
             dataAccess = new DataAccessSQL();
+            loginSession = new LoginSession();
             InitializeComponent();
         }
 
@@ -45,32 +48,42 @@ namespace Calendar
 
         private void urgentBtn_Click(object sender, EventArgs e)
         {
+            makeAllPurple();
             selectedPriority = 1;
-            MessageBox.Show(selectedPriority.ToString());
+            urgentBtn.BackColor = Color.Gray;
+            //MessageBox.Show(selectedPriority.ToString());
         }
 
         private void generalBtn_Click(object sender, EventArgs e)
         {
+            makeAllPurple();
             selectedPriority = 2;
-            MessageBox.Show(selectedPriority.ToString());
+            generalBtn.BackColor = Color.Gray;
+            //MessageBox.Show(selectedPriority.ToString());
         }
 
         private void friendBtn_Click(object sender, EventArgs e)
         {
+            makeAllPurple();
             selectedPriority = 3;
-            MessageBox.Show(selectedPriority.ToString());
+            friendBtn.BackColor = Color.Gray;
+            //MessageBox.Show(selectedPriority.ToString());
         }
 
         private void schoolBtn_Click(object sender, EventArgs e)
         {
+            makeAllPurple();
             selectedPriority = 2;
-            MessageBox.Show(selectedPriority.ToString());
+            schoolBtn.BackColor = Color.Gray;
+            //MessageBox.Show(selectedPriority.ToString());
         }
 
         private void otherBtn_Click(object sender, EventArgs e)
         {
+            makeAllPurple();
             selectedPriority = 3;
-            MessageBox.Show(selectedPriority.ToString());
+            otherBtn.BackColor = Color.Gray;
+            //MessageBox.Show(selectedPriority.ToString());
         }
 
         private void notesBox_TextChanged(object sender, EventArgs e)
@@ -80,7 +93,15 @@ namespace Calendar
 
         private void submitBtn_Click(object sender, EventArgs e)
         {
-            dataAccess.MakeStudentBooking(notesBox.Text, selectedPriority, "unscheduled");
+            dataAccess.MakeStudentBooking(loginSession.StudentID, notesBox.Text, selectedPriority, "unscheduled");
+        }
+        private void makeAllPurple()
+        {
+            schoolBtn.BackColor = Color.MediumPurple;
+            friendBtn.BackColor = Color.MediumPurple;
+            urgentBtn.BackColor = Color.MediumPurple;
+            generalBtn.BackColor = Color.MediumPurple;
+            otherBtn.BackColor = Color.MediumPurple;
         }
     }
 }

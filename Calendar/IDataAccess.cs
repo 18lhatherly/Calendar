@@ -10,6 +10,6 @@ namespace Calendar
     internal interface IDataAccess
     {
         public List<Student> GetStudentList();
-
+        public void MakeStudentBooking(int studentID, string description, int importance, string status);
     }
 }

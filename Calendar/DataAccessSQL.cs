@@ -49,15 +49,36 @@ namespace Calendar
             con.Close(); // close connection
             return students;
         }
-        public static void MakeStudentBooking(string description, int importance, string status)
+        public void MakeStudentBooking(int studentID, string description, int importance, string status)
         {
-            MySqlCommand cmd = new MySqlCommand();
-            //Simple count query - returns 1 result
-            String SQL = $"INSERT INTO Appointment(Description, Importance, Status) VALUES({description}, {importance}, {status}); ";
-            cmd.CommandText = SQL;
-            cmd.Connection = con;
+            int appID = -1;
+            //MySqlCommand cmd = new MySqlCommand();
+            //String SQL = "INSERT INTO Appointment(Description, Importance, Status) VALUES('{description}', {importance}, '{status}'); SELECT LAST_INSERT_ID();";
+            //cmd.CommandText = SQL;
+            //cmd.Connection = con;
+            //con.Open(); // open connection
+
             con.Open(); // open connection
-            cmd.ExecuteReader(); // results are going to be multiple
+            String SQL = "INSERT INTO Appointment(Description, Importance, Status) " +
+                                "VALUES('@description', @importance, '@status'); " +
+                                "SELECT LAST_INSERT_ID();";
+            MySqlCommand cmd = new MySqlCommand(SQL, con);
+            cmd.Parameters.AddWithValue("@description", description);
+            cmd.Parameters.AddWithValue("@importance", importance);
+            cmd.Parameters.AddWithValue("@status", status);
+            MySqlDataReader results = cmd.ExecuteReader();
+            while (results.Read())
+            {
+                appID = Convert.ToInt32(results[0]);
+            }
+            con.Close();
+
+            con.Open();
+            SQL = "INSERT INTO AppointmentData VALUES(@appID, @studentID);";
+            cmd = new MySqlCommand(SQL, con);
+            cmd.Parameters.AddWithValue("@appID", appID);
+            cmd.Parameters.AddWithValue("@studentID", studentID);
+            cmd.ExecuteReader();
             con.Close(); // close connection
         }
     }
