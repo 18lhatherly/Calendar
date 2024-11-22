@@ -12,7 +12,7 @@ namespace Calendar
         private List<Queue<T>> queues;
         private int queueCount;
 
-        public PRQueue(int levels = 5)
+        public PRQueue(int levels = 3)
         {
             priority = new int[levels];
             queues = new List<Queue<T>>();

@@ -12,6 +12,7 @@ namespace Calendar
 {
     public partial class BookingForm : Form
     {
+        int selectedPriority = -1;
         public BookingForm()
         {
             InitializeComponent();
@@ -20,6 +21,7 @@ namespace Calendar
         private void BookingForm_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+            
         }
 
         private void Navbar_Paint(object sender, PaintEventArgs e)
@@ -35,6 +37,36 @@ namespace Calendar
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void urgentBtn_Click(object sender, EventArgs e)
+        {
+            selectedPriority = 1;
+            MessageBox.Show(selectedPriority.ToString());
+        }
+
+        private void generalBtn_Click(object sender, EventArgs e)
+        {
+            selectedPriority = 2;
+            MessageBox.Show(selectedPriority.ToString());
+        }
+
+        private void friendBtn_Click(object sender, EventArgs e)
+        {
+            selectedPriority = 3;
+            MessageBox.Show(selectedPriority.ToString());
+        }
+
+        private void schoolBtn_Click(object sender, EventArgs e)
+        {
+            selectedPriority = 2;
+            MessageBox.Show(selectedPriority.ToString());
+        }
+
+        private void otherBtn_Click(object sender, EventArgs e)
+        {
+            selectedPriority = 3;
+            MessageBox.Show(selectedPriority.ToString());
         }
     }
 }
