@@ -49,5 +49,16 @@ namespace Calendar
             con.Close(); // close connection
             return students;
         }
+        public static void MakeStudentBooking(string description, int importance, string status)
+        {
+            MySqlCommand cmd = new MySqlCommand();
+            //Simple count query - returns 1 result
+            String SQL = $"INSERT INTO Appointment(Description, Importance, Status) VALUES({description}, {importance}, {status}); ";
+            cmd.CommandText = SQL;
+            cmd.Connection = con;
+            con.Open(); // open connection
+            cmd.ExecuteReader(); // results are going to be multiple
+            con.Close(); // close connection
+        }
     }
 }

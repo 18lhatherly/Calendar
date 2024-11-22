@@ -12,16 +12,20 @@ namespace Calendar
 {
     public partial class BookingForm : Form
     {
+        private IDataAccess dataAccess;
         int selectedPriority = -1;
+        //string studentName = "Laura";
+        //PRQueue<int> myPriorityQueue = new PRQueue<int>();
         public BookingForm()
         {
+            dataAccess = new DataAccessSQL();
             InitializeComponent();
         }
 
         private void BookingForm_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            
+
         }
 
         private void Navbar_Paint(object sender, PaintEventArgs e)
@@ -67,6 +71,16 @@ namespace Calendar
         {
             selectedPriority = 3;
             MessageBox.Show(selectedPriority.ToString());
+        }
+
+        private void notesBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+            dataAccess.MakeStudentBooking(notesBox.Text, selectedPriority, "unscheduled");
         }
     }
 }
