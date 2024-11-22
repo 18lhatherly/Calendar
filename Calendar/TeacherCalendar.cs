@@ -9,6 +9,7 @@ namespace Calendar
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
             PopulateDataGridView();
             this.teacherSelector.DropDownStyle = ComboBoxStyle.DropDownList;
             weekCalendar.RowHeadersWidth = 200;
@@ -167,8 +168,8 @@ namespace Calendar
 
         private void studentsBtn_Click(object sender, EventArgs e)
         {
-            Students.Show();
-            TeacherCalendar.Close();
+            Students studentsForm = new Students();
+            studentsForm.Show();
         }
     }
 }

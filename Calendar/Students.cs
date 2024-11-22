@@ -23,6 +23,7 @@ namespace Calendar
         }
         private void Students_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
             //studentList.Items.Add("Adam Hatherly");
 
             List<Student> studentsFromDB = dataAccess.GetStudentList();

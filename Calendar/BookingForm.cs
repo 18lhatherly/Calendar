@@ -19,6 +19,21 @@ namespace Calendar
 
         private void BookingForm_Load(object sender, EventArgs e)
         {
+            WindowState = FormWindowState.Maximized;
+        }
+
+        private void Navbar_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void studentsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }
